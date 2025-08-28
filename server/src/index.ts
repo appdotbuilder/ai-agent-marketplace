@@ -40,6 +40,7 @@ import { buyCredits } from './handlers/buy_credits';
 import { withdrawCredits } from './handlers/withdraw_credits';
 import { getCreditTransactions } from './handlers/get_credit_transactions';
 import { getUserBalance } from './handlers/get_user_balance';
+import { initCategories } from './handlers/init_categories';
 
 const t = initTRPC.create({
   transformer: superjson,
@@ -77,6 +78,9 @@ const appRouter = router({
   
   getCategories: publicProcedure
     .query(() => getCategories()),
+  
+  initCategories: publicProcedure
+    .mutation(() => initCategories()),
 
   // AI Agent management routes
   createAIAgent: publicProcedure
